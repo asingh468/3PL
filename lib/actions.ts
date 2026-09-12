@@ -77,7 +77,7 @@ export async function submitContactForm(
   // Example:
   // const resend = new Resend(process.env.RESEND_API_KEY);
   // await resend.emails.send({
-  //   from: "Octave Eight Fulfillment <no-reply@yourdomain.com>",
+  //   from: "Octave Logistics <no-reply@yourdomain.com>",
   //   to: siteConfig.contactEmail,
   //   subject: `New fulfillment inquiry from ${payload.company}`,
   //   text: JSON.stringify(payload, null, 2),

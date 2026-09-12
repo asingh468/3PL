@@ -4,7 +4,7 @@ export function WhyUs() {
   return (
     <section id="why-us" className="section shell">
       <div className="sectionHead">
-        <div className="eyebrow">Why Octave Eight</div>
+        <div className="eyebrow">Why Octave Logistics</div>
         <h2>Built around responsiveness, transparency, and regional service.</h2>
       </div>
 

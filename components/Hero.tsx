@@ -46,8 +46,8 @@ export function Hero() {
             </ol>
             <div className="flowMeta">
               <div>
-                <span className="flowMetaLabel">Cutoff</span>
-                <span className="flowMetaValue">{siteConfig.sameDayCutoff}</span>
+                <span className="flowMetaLabel">Fulfillment</span>
+                <span className="flowMetaValue">Same-day eligible</span>
               </div>
               <div>
                 <span className="flowMetaLabel">Region</span>

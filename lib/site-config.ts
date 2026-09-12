@@ -3,11 +3,10 @@
 // needing to touch component/JSX files.
 
 export const siteConfig = {
-  name: "Octave Eight Fulfillment",
-  shortName: "Octave Eight",
+  name: "Octave Logistics",
+  shortName: "Octave Logistics",
   tagline: "Fast, hands-on fulfillment for growing ecommerce brands.",
   region: "Northern California",
-  sameDayCutoff: "3 PM",
   // Set via NEXT_PUBLIC_CONTACT_EMAIL in .env.local. Leave blank until a real
   // business email exists -- do not publish a placeholder/fake address.
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
@@ -25,7 +24,7 @@ export const heroHighlights = [
 export const trustHighlights = [
   {
     title: "Same-Day Fulfillment",
-    body: `Eligible orders received before ${"3 PM"} are targeted for same-day fulfillment, subject to service agreement and carrier cutoffs.`,
+    body: "Eligible orders can qualify for same-day fulfillment, subject to service agreement and carrier cutoffs.",
   },
   {
     title: "Direct Human Support",
@@ -67,7 +66,7 @@ export const processSteps = [
 
 export const sameDayCallout = {
   title: "Same-day fulfillment, when it counts",
-  body: `Eligible orders received before ${siteConfig.sameDayCutoff} can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.`,
+  body: "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.",
 };
 
 // Services, grouped so the section doesn't become a wall of equal cards.
@@ -99,7 +98,7 @@ export const serviceGroups = [
 export const productScopeNote =
   "Launch service is available for eligible non-regulated, non-hazardous consumer goods. Regulated categories (food, supplements, pharmaceuticals, alcohol, cannabis, hazardous materials, refrigerated goods) are not currently supported.";
 
-// "Why choose us" comparison -- large 3PL vs. Octave Eight.
+// "Why choose us" comparison -- large 3PL vs. Octave Logistics.
 export const comparison = {
   large: {
     label: "Large 3PL",
@@ -154,13 +153,18 @@ export type PricingTier = {
   extra: string;
 };
 
+// Public pricing intentionally does not list dollar figures. Tiers are shown
+// so prospects understand volume-based pricing exists, without exposing
+// exact rates to competitors or every visitor. Quotes are provided directly.
 export const proposedPricing: PricingTier[] = [
-  { name: "Starter", orders: "1-499 orders/mo", base: "$3.50 / order", extra: "Additional unit +$0.60" },
-  { name: "Growth", orders: "500-1,499 orders/mo", base: "$3.25 / order", extra: "Additional unit +$0.60" },
-  { name: "Scale", orders: "1,500-4,999 orders/mo", base: "$3.00 / order", extra: "Additional unit +$0.60" },
+  { name: "Starter", orders: "1-499 orders/mo", base: "Custom quote", extra: "Request pricing" },
+  { name: "Growth", orders: "500-1,499 orders/mo", base: "Custom quote", extra: "Request pricing" },
+  { name: "Scale", orders: "1,500-4,999 orders/mo", base: "Custom quote", extra: "Request pricing" },
   { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Talk to the founding team" },
 ];
 
+// Internal/planning rates -- do not display these publicly. Kept here only
+// for founders' reference; no component currently renders this list.
 export const secondaryRates = [
   { label: "Receiving", value: "$45 / hr" },
   { label: "Pallet storage", value: "$30 / mo" },
@@ -173,7 +177,7 @@ export const secondaryRates = [
 ];
 
 export const pricingNote =
-  "Higher volume unlocks better per-order pricing -- service quality stays consistent across every tier. These are current planning rates; final quotes depend on actual volume, storage footprint, packaging, receiving complexity, and returns rate confirmed in a signed service agreement.";
+  "Higher volume unlocks better per-order pricing -- service quality stays consistent across every tier. Pricing is quoted directly based on your volume, storage footprint, packaging, receiving complexity, and returns rate.";
 
 export const idealClientPoints = [
   "Shopify / ecommerce brand selling physical consumer goods",
@@ -196,7 +200,7 @@ export const faqs = [
   {
     question: "How does same-day fulfillment work?",
     answer:
-      "Eligible orders received before the daily cutoff can qualify for same-day fulfillment, subject to your service agreement, our operational capacity, and carrier cutoff times.",
+      "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, our operational capacity, and carrier cutoff times.",
   },
   {
     question: "Do I need a minimum order volume?",
