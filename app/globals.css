@@ -186,9 +186,33 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  opacity: 0.85;
+  height: 55%;
+  opacity: 0.5;
+  /* Fade the skyline out toward the top/left so it never sits behind the
+     headline or body copy -- keeps text contrast high while still reading
+     as an animated scene along the lower-right of the hero. */
+  -webkit-mask-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 34%,
+    rgba(0, 0, 0, 0.5) 46%,
+    #000 62%
+  );
+  mask-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 34%,
+    rgba(0, 0, 0, 0.5) 46%,
+    #000 62%
+  );
 }
+.heroCityscape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #f4f7fb 0%, rgba(244, 247, 251, 0.2) 45%, rgba(255, 255, 255, 0) 70%);
+}
+
 .cityscapeBuilding {
   fill: #d7dee7;
   stroke: #c3cdd9;
@@ -272,7 +296,12 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   }
 }
 @media (max-width: 620px) {
-  .cityscapeSvg { opacity: 0.55; }
+  .cityscapeSvg {
+    opacity: 0.3;
+    height: 30%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+  }
 }
 
 /* Hero visual: order-flow card */
