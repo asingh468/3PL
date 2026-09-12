@@ -219,7 +219,8 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 
 /* Sky layer: drifting clouds + planes, positioned above the skyline. */
 .cloud {
-  fill: rgba(15, 27, 46, 0.14);
+  fill: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 2px 3px rgba(15, 27, 46, 0.12));
   animation: cloudDrift linear infinite;
 }
 .cloud-1 { animation-duration: 55s; }
