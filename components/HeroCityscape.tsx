@@ -74,6 +74,36 @@ export function HeroCityscape() {
         preserveAspectRatio="xMidYMax slice"
         focusable="false"
       >
+        <g className="cityscapeSky">
+          <g className="cloud cloud-1">
+            <ellipse cx={0} cy={40} rx={30} ry={12} />
+            <ellipse cx={22} cy={34} rx={22} ry={14} />
+            <ellipse cx={-22} cy={36} rx={20} ry={12} />
+          </g>
+          <g className="cloud cloud-2">
+            <ellipse cx={0} cy={20} rx={22} ry={9} />
+            <ellipse cx={16} cy={16} rx={16} ry={10} />
+            <ellipse cx={-16} cy={17} rx={14} ry={9} />
+          </g>
+          <g className="cloud cloud-3">
+            <ellipse cx={0} cy={60} rx={26} ry={10} />
+            <ellipse cx={18} cy={55} rx={18} ry={11} />
+            <ellipse cx={-18} cy={57} rx={16} ry={10} />
+          </g>
+
+          <g className="plane plane-1">
+            <path d="M0 0 L34 3 L44 0 L34 -3 Z" className="planeBody" />
+            <path d="M14 0 L4 -10 L8 -10 L20 -1 Z" className="planeWing" />
+            <path d="M14 0 L4 10 L8 10 L20 1 Z" className="planeWing" />
+            <rect x={38} y={-1} width={5} height={2} className="planeTail" />
+          </g>
+          <g className="plane plane-2">
+            <path d="M0 0 L26 2 L34 0 L26 -2 Z" className="planeBody" />
+            <path d="M10 0 L3 -8 L6 -8 L15 -1 Z" className="planeWing" />
+            <path d="M10 0 L3 8 L6 8 L15 1 Z" className="planeWing" />
+          </g>
+        </g>
+
         <g className="cityscapeBuildings">
           {buildings.map((b, i) => {
             const palette = ["", "cityscapeBuilding-blue", "cityscapeBuilding-teal", "cityscapeBuilding-amber", "cityscapeBuilding-rose", "cityscapeBuilding-violet"];
