@@ -426,8 +426,38 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 .stepNumber {
   font-size: 0.86rem; font-weight: 750; color: var(--accent-dark); background: var(--accent-soft);
   width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
-.stepConnector { flex: 1; height: 1px; background: var(--line); }
+.stepConnector {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: visible;
+}
+/* A small package glides along each connector, left to right, looping and
+   staggered per step -- visually reinforcing "orders moving through the
+   process" rather than a generic pulse. */
+.stepPackage {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  transform: translate(-50%, -50%);
+  animation: packageTravel 3.6s ease-in-out infinite;
+}
+@keyframes packageTravel {
+  0% { left: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
 .processStep p { color: var(--muted); line-height: 1.55; font-size: 0.92rem; margin: 0; }
 .calloutCard {
   background: var(--accent-soft); border-radius: var(--radius-lg); padding: 30px 32px;
@@ -609,6 +639,25 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
     width: 1px;
     background: var(--line);
   }
+  .processFlow::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+    transform: translate(-50%, 0);
+    animation: packageDescend 4.5s ease-in-out infinite;
+  }
+  @keyframes packageDescend {
+    0% { top: 0%; opacity: 0; }
+    8% { opacity: 1; }
+    92% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
   .processStep { padding-bottom: 30px; }
   .processStepTop { margin-bottom: 10px; }
   .stepConnector { display: none; }
@@ -619,4 +668,10 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   .formGrid { grid-template-columns: 1fr; }
   .footerInner { flex-direction: column; align-items: flex-start; }
   .navActions .navCta { padding: 0 16px; font-size: 0.88rem; }
+}
+
+/* Placed last so it overrides animation rules defined in any media query above. */
+@media (prefers-reduced-motion: reduce) {
+  .stepPackage { animation: none; left: 50%; opacity: 1; }
+  .processFlow::after { animation: none; top: 50%; opacity: 1; }
 }

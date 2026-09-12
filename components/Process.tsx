@@ -13,7 +13,14 @@ export function Process() {
           <li className="processStep" key={step.title}>
             <div className="processStepTop">
               <span className="stepNumber">{String(index + 1).padStart(2, "0")}</span>
-              {index < processSteps.length - 1 && <span className="stepConnector" aria-hidden="true" />}
+              {index < processSteps.length - 1 && (
+                <span className="stepConnector" aria-hidden="true">
+                  <span
+                    className="stepPackage"
+                    style={{ animationDelay: `${index * 0.9}s` }}
+                  />
+                </span>
+              )}
             </div>
             <h3>{step.title}</h3>
             <p>{step.body}</p>
