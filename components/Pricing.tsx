@@ -8,14 +8,18 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="section shell">
-      <div className="eyebrow">Proposed volume pricing</div>
-      <h2>More volume, lower fulfillment rate.</h2>
-      <p className="lede small">
-        These are current planning rates and should remain easy to edit as the founders finalize launch economics.
-      </p>
+      <div className="sectionHead">
+        <div className="eyebrow">Volume-based pricing</div>
+        <h2>More volume, lower fulfillment rate.</h2>
+        <p className="lede small">
+          Straightforward per-order pricing. Service quality stays consistent across every tier.
+        </p>
+      </div>
+
       <div className="pricingGrid">
-        {proposedPricing.map((tier) => (
-          <article className="priceCard" key={tier.name}>
+        {proposedPricing.map((tier, index) => (
+          <article className={`priceCard${index === 1 ? " priceCard-featured" : ""}`} key={tier.name}>
+            {index === 1 && <span className="priceBadge">Most common</span>}
             <div className="tier">{tier.name}</div>
             <div className="orders">{tier.orders}</div>
             <div className="price">{tier.base}</div>

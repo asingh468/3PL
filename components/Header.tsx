@@ -14,7 +14,7 @@ export function Header() {
       <nav className="nav shell" aria-label="Primary">
         <a href="#top" className="brand" aria-label={`${siteConfig.name} home`}>
           <span className="brandMark" aria-hidden="true" />
-          {siteConfig.shortName}
+          <span className="brandWord">{siteConfig.shortName}</span>
         </a>
         <ul className="navLinks">
           {navItems.map((item) => (
@@ -23,9 +23,14 @@ export function Header() {
             </li>
           ))}
         </ul>
-        <a className="button ghost navCta" href="#contact">
-          Talk to the founding team
-        </a>
+        <div className="navActions">
+          <a className="button ghost navSecondary" href="#contact">
+            Talk to Our Team
+          </a>
+          <a className="button navCta" href="#contact">
+            Get a Fulfillment Quote
+          </a>
+        </div>
       </nav>
     </header>
   );

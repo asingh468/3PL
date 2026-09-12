@@ -1,11 +1,11 @@
-﻿// Central editable site content and configuration.
-// Founders can edit copy, pricing, services, and contact details here
-// without needing to touch component/JSX files.
+// Central editable site content and configuration.
+// Founders can edit copy, pricing, services, and messaging here without
+// needing to touch component/JSX files.
 
 export const siteConfig = {
   name: "Octave Eight Fulfillment",
   shortName: "Octave Eight",
-  tagline: "Fulfillment that keeps growing brands in rhythm.",
+  tagline: "Fast, hands-on fulfillment for growing ecommerce brands.",
   region: "Northern California",
   sameDayCutoff: "3 PM",
   // Set via NEXT_PUBLIC_CONTACT_EMAIL in .env.local. Leave blank until a real
@@ -13,92 +13,138 @@ export const siteConfig = {
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
 };
 
-export const trustPoints = [
-  "Northern California focus",
-  "Human-first support",
-  "Shopify / WMS connected workflows",
-  "Simple volume-based pricing",
+// Hero supporting highlights -- shown as a compact list under the hero copy.
+export const heroHighlights = [
+  "Northern California fulfillment",
+  "Direct human support, not ticket queues",
+  "Transparent, straightforward pricing",
+  "Shopify & ecommerce integration",
 ];
 
-export const services = [
+// Trust / credibility strip, immediately after the hero.
+export const trustHighlights = [
   {
-    title: "Receiving & putaway",
-    body: "Inbound inventory is received, counted, and organized using structured warehouse workflows so stock is accurately reflected from day one.",
+    title: "Same-Day Fulfillment",
+    body: `Eligible orders received before ${"3 PM"} are targeted for same-day fulfillment, subject to service agreement and carrier cutoffs.`,
   },
   {
-    title: "Storage & inventory handling",
-    body: "Ongoing storage and inventory handling designed around your SKU mix, with visibility into on-hand quantities as your catalog grows.",
+    title: "Direct Human Support",
+    body: "Clients speak directly with the people who actually know their account -- not a rotating support queue.",
   },
   {
-    title: "Pick, pack & ship",
-    body: "Orders are picked, packed, and handed off to carriers with care, including same-day fulfillment options for eligible orders received before the daily cutoff.",
+    title: "Transparent Pricing",
+    body: "Straightforward fulfillment and storage pricing without confusing fee structures or surprise charges.",
   },
   {
-    title: "Returns processing",
-    body: "Incoming returns are received, inspected, and processed back into inventory or disposition, with status communicated back to you.",
+    title: "Real-Time Visibility",
+    body: "Connected ecommerce and inventory systems give you visibility into orders and stock as they move.",
+  },
+];
+
+// "How it works" -- horizontal on desktop, vertical timeline on mobile.
+export const processSteps = [
+  {
+    title: "Connect Store",
+    body: "Your Shopify store (and inventory data) connects into our operating workflow.",
   },
   {
-    title: "Simple kitting & project work",
-    body: "Light kitting and bundling for straightforward multi-item assemblies, along with occasional special projects as needed.",
+    title: "Send Inventory",
+    body: "Inventory ships to our facility and is logged as it arrives.",
   },
   {
-    title: "Client communication & account support",
-    body: "A direct line to the people actually running your fulfillment, not a ticket queue -- so questions get answered by someone who knows your account.",
+    title: "We Store & Manage",
+    body: "Inventory is received, counted, and organized so it's ready to fulfill accurately.",
+  },
+  {
+    title: "Orders Sync Automatically",
+    body: "Ecommerce orders flow directly into the fulfillment queue -- no manual re-entry.",
+  },
+  {
+    title: "Pick, Pack & Ship",
+    body: "Orders are picked, packed, and handed to carriers, with status communicated back to you.",
+  },
+];
+
+export const sameDayCallout = {
+  title: "Same-day fulfillment, when it counts",
+  body: `Eligible orders received before ${siteConfig.sameDayCutoff} can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.`,
+};
+
+// Services, grouped so the section doesn't become a wall of equal cards.
+export const serviceGroups = [
+  {
+    group: "Inbound",
+    items: [
+      { title: "Receiving", body: "Inbound shipments are logged and inspected as they arrive." },
+      { title: "Storage", body: "Flexible storage that scales with your SKU count and volume." },
+      { title: "Inventory management", body: "Accurate, up-to-date counts you can see anytime." },
+    ],
+  },
+  {
+    group: "Outbound",
+    items: [
+      { title: "Pick & pack", body: "Orders picked and packed with consistent quality control." },
+      { title: "Shipping handoff", body: "Reliable carrier handoff, including same-day options for eligible orders." },
+      { title: "Returns", body: "Returns are received, inspected, and put back into rotation or dispositioned." },
+    ],
+  },
+  {
+    group: "Value-added",
+    items: [
+      { title: "Kitting & projects", body: "Light kitting, bundling, and special projects as your catalog grows." },
+    ],
   },
 ];
 
 export const productScopeNote =
   "Launch service is available for eligible non-regulated, non-hazardous consumer goods. Regulated categories (food, supplements, pharmaceuticals, alcohol, cannabis, hazardous materials, refrigerated goods) are not currently supported.";
 
-export const whyPoints = [
-  {
-    title: "Direct human communication",
-    body: "Talk to the people actually handling your inventory and orders instead of being routed through a faceless support queue.",
+// "Why choose us" comparison -- large 3PL vs. Octave Eight.
+export const comparison = {
+  large: {
+    label: "Large 3PL",
+    points: [
+      "Ticket-based support queues",
+      "Complicated, opaque fee structures",
+      "Smaller brands become low priority",
+      "Limited flexibility as you grow",
+    ],
   },
-  {
-    title: "Regional accessibility",
-    body: "A Northern California-focused partner built to stay close and responsive to the brands we serve.",
+  ours: {
+    label: siteConfig.shortName,
+    points: [
+      "Direct communication with real people",
+      "Transparent, straightforward pricing",
+      "Hands-on, white-glove support",
+      "Regional accessibility and a customer-first approach",
+    ],
   },
-  {
-    title: "Boutique attention",
-    body: "A founder-involved operating model built around a smaller number of well-supported accounts rather than volume at any cost.",
-  },
-  {
-    title: "Clear expectations",
-    body: "Straightforward service terms and pricing so you know what you're getting before you sign anything.",
-  },
-  {
-    title: "Team-oriented operating model",
-    body: "Eight founders coordinating closely across receiving, operations, and account support -- precision and rhythm behind the scenes.",
-  },
-];
+};
 
-export const processSteps = [
-  {
-    title: "Discovery / fit review",
-    body: "We start with a short conversation about your products, volume, and current fulfillment setup to confirm we're a good fit.",
-  },
-  {
-    title: "Connect store and inventory data",
-    body: "Your Shopify store and inventory data are connected so orders and stock levels flow into our operating workflow.",
-  },
-  {
-    title: "Receive and organize inventory",
-    body: "Inbound inventory is received, counted, and organized so it's ready to fulfill accurately from day one.",
-  },
-  {
-    title: "Orders flow to fulfillment",
-    body: "As orders come in, they route directly into our pick/pack workflow without manual re-entry.",
-  },
-  {
-    title: "Pick, pack, ship & stay informed",
-    body: "Orders are picked, packed, and shipped, with status and exceptions communicated back to you along the way.",
-  },
-];
+// Regional / Northern California advantage section.
+export const regionalAdvantage = {
+  eyebrow: "Regional advantage",
+  heading: "A strategic Northern California location.",
+  body: "Being based in Northern California means convenient regional access for West Coast brands, efficient shipping to major population centers, and the ability to build a closer relationship with the team actually handling your inventory.",
+  points: [
+    "Strategic Northern California location",
+    "Convenient access for regional brands",
+    "Efficient West Coast shipping reach",
+    "A closer relationship with your fulfillment provider",
+  ],
+};
 
-export const sameDayCallout = {
-  title: "Same-day fulfillment, when it counts",
-  body: "Eligible orders received before " + siteConfig.sameDayCutoff + " can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.",
+// Human-first service section -- one of the strongest message sections.
+export const humanService = {
+  eyebrow: "Human, not a black box",
+  heading: "Your inventory shouldn't disappear into a black box.",
+  body: "When something needs attention, you talk to a person who already knows your account -- not a new agent starting from zero every time. We proactively communicate issues before they become problems, instead of waiting for you to ask.",
+  points: [
+    "Direct access to the people running your fulfillment",
+    "Proactive communication when something needs attention",
+    "No anonymous ticket queues or scripted responses",
+    "A team that grows with you, not around you",
+  ],
 };
 
 export type PricingTier = {
@@ -109,7 +155,7 @@ export type PricingTier = {
 };
 
 export const proposedPricing: PricingTier[] = [
-  { name: "Starter", orders: "100-499 orders/mo", base: "$3.50 / order", extra: "Additional unit +$0.60" },
+  { name: "Starter", orders: "1-499 orders/mo", base: "$3.50 / order", extra: "Additional unit +$0.60" },
   { name: "Growth", orders: "500-1,499 orders/mo", base: "$3.25 / order", extra: "Additional unit +$0.60" },
   { name: "Scale", orders: "1,500-4,999 orders/mo", base: "$3.00 / order", extra: "Additional unit +$0.60" },
   { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Talk to the founding team" },
@@ -127,7 +173,7 @@ export const secondaryRates = [
 ];
 
 export const pricingNote =
-  "These are current planning rates, shown for transparency, and are subject to change. Final quotes depend on actual volume, storage footprint, packaging, receiving complexity, returns rate, and other operating requirements confirmed in a signed service agreement.";
+  "Higher volume unlocks better per-order pricing -- service quality stays consistent across every tier. These are current planning rates; final quotes depend on actual volume, storage footprint, packaging, receiving complexity, and returns rate confirmed in a signed service agreement.";
 
 export const idealClientPoints = [
   "Shopify / ecommerce brand selling physical consumer goods",
@@ -168,6 +214,11 @@ export const faqs = [
       "Facility visits can be coordinated once the operating location and client agreement allow it.",
   },
 ];
+
+export const finalCta = {
+  heading: "Ready to simplify your fulfillment?",
+  body: "Tell us about your current order volume and fulfillment needs.",
+};
 
 export const footerLinks = {
   privacy: { label: "Privacy Policy", href: "#", todo: true },
