@@ -187,28 +187,63 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.55;
+  opacity: 0.85;
 }
 .cityscapeBuilding {
-  fill: var(--line-soft);
+  fill: #d7dee7;
+  stroke: #c3cdd9;
+  stroke-width: 1;
 }
-.cityscapeRoad {
-  fill: #eef1f5;
+.cityscapeRoof {
+  fill: #c3cdd9;
 }
-.cityscapeRoadLine {
-  fill: var(--line);
+.cityscapeWindow {
+  fill: #b7c2d0;
 }
-.vehicleBody {
-  fill: var(--ink);
+.cityscapeWindowLit {
+  fill: var(--accent);
   opacity: 0.55;
 }
-.vehicleBody-accent {
-  fill: var(--accent);
-  opacity: 0.7;
+.cityscapeCurb {
+  fill: #c3cdd9;
 }
-.vehicleCab {
+.cityscapeRoad {
+  fill: #e4e9ef;
+}
+.cityscapeRoadDash {
+  fill: #cfd7e0;
+}
+.vehicleTrailer {
+  fill: var(--ink);
+  opacity: 0.82;
+}
+.vehicleTrailer-dark {
+  fill: var(--navy-700);
+  opacity: 0.88;
+}
+.vehicleTrailerPanel {
   fill: var(--white);
+  opacity: 0.9;
+}
+.vehicleTruckCab {
+  fill: var(--ink);
+  opacity: 0.9;
+}
+.vehicleVan {
+  fill: var(--ink);
+  opacity: 0.8;
+}
+.vehicleVan-accent {
+  fill: var(--accent);
   opacity: 0.85;
+}
+.vehicleWindow {
+  fill: #e7edf5;
+  opacity: 0.95;
+}
+.vehicleWheel {
+  fill: #2a3140;
+  opacity: 0.9;
 }
 .vehicle-right {
   animation: cityDriveRight linear infinite;
@@ -218,18 +253,18 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   animation: cityDriveLeft linear infinite;
   animation-duration: var(--vehicle-duration, 22s);
 }
-.vehicle-speed-1 { --vehicle-duration: 14s; }
-.vehicle-speed-2 { --vehicle-duration: 20s; animation-delay: -6s; }
+.vehicle-speed-1 { --vehicle-duration: 15s; }
+.vehicle-speed-2 { --vehicle-duration: 12s; animation-delay: -4s; }
 .vehicle-speed-3 { --vehicle-duration: 17s; }
-.vehicle-speed-4 { --vehicle-duration: 24s; animation-delay: -10s; }
+.vehicle-speed-4 { --vehicle-duration: 13s; animation-delay: -7s; }
 
 @keyframes cityDriveRight {
-  from { transform: translateX(-80px); }
+  from { transform: translateX(-90px); }
   to { transform: translateX(1680px); }
 }
 @keyframes cityDriveLeft {
   from { transform: translateX(1680px) scaleX(-1); }
-  to { transform: translateX(-80px) scaleX(-1); }
+  to { transform: translateX(-90px) scaleX(-1); }
 }
 @media (prefers-reduced-motion: reduce) {
   .vehicle-right, .vehicle-left {
@@ -237,7 +272,7 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   }
 }
 @media (max-width: 620px) {
-  .cityscapeSvg { opacity: 0.35; }
+  .cityscapeSvg { opacity: 0.55; }
 }
 
 /* Hero visual: order-flow card */
