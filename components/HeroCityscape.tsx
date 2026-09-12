@@ -75,7 +75,10 @@ export function HeroCityscape() {
         focusable="false"
       >
         <g className="cityscapeBuildings">
-          {buildings.map((b, i) => (
+          {buildings.map((b, i) => {
+            const palette = ["", "cityscapeBuilding-blue", "cityscapeBuilding-teal", "cityscapeBuilding-amber", "cityscapeBuilding-rose", "cityscapeBuilding-violet"];
+            const colorClass = palette[i % palette.length];
+            return (
             <g key={i}>
               <rect
                 x={b.x}
@@ -83,7 +86,7 @@ export function HeroCityscape() {
                 width={b.w}
                 height={b.h}
                 rx={2}
-                className="cityscapeBuilding"
+                className={`cityscapeBuilding ${colorClass}`}
               />
               <rect
                 x={b.x}
@@ -103,7 +106,8 @@ export function HeroCityscape() {
                 />
               ))}
             </g>
-          ))}
+            );
+          })}
         </g>
 
         <rect x={0} y={230} width={1600} height={2} className="cityscapeCurb" />

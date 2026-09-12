@@ -214,19 +214,24 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 }
 
 .cityscapeBuilding {
-  fill: #d7dee7;
-  stroke: #c3cdd9;
+  fill: #c9d3e0;
+  stroke: rgba(15, 27, 46, 0.12);
   stroke-width: 1;
 }
+.cityscapeBuilding-blue { fill: #b9c9ec; }
+.cityscapeBuilding-teal { fill: #a9dcd6; }
+.cityscapeBuilding-amber { fill: #f0d9ac; }
+.cityscapeBuilding-rose { fill: #f0c2c9; }
+.cityscapeBuilding-violet { fill: #cbc2ee; }
 .cityscapeRoof {
-  fill: #c3cdd9;
+  fill: rgba(15, 27, 46, 0.2);
 }
 .cityscapeWindow {
-  fill: #b7c2d0;
+  fill: rgba(15, 27, 46, 0.22);
 }
 .cityscapeWindowLit {
-  fill: var(--accent);
-  opacity: 0.55;
+  fill: #ffce54;
+  opacity: 0.9;
 }
 .cityscapeCurb {
   fill: #c3cdd9;
@@ -238,28 +243,28 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   fill: #cfd7e0;
 }
 .vehicleTrailer {
-  fill: var(--ink);
-  opacity: 0.82;
+  fill: #2f5fe0;
+  opacity: 0.92;
 }
 .vehicleTrailer-dark {
-  fill: var(--navy-700);
-  opacity: 0.88;
+  fill: #e2543f;
+  opacity: 0.92;
 }
 .vehicleTrailerPanel {
   fill: var(--white);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 .vehicleTruckCab {
   fill: var(--ink);
-  opacity: 0.9;
+  opacity: 0.92;
 }
 .vehicleVan {
-  fill: var(--ink);
-  opacity: 0.8;
+  fill: #22a687;
+  opacity: 0.9;
 }
 .vehicleVan-accent {
-  fill: var(--accent);
-  opacity: 0.85;
+  fill: #f0a63a;
+  opacity: 0.92;
 }
 .vehicleWindow {
   fill: #e7edf5;
@@ -287,8 +292,8 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   to { transform: translateX(1680px); }
 }
 @keyframes cityDriveLeft {
-  from { transform: translateX(1680px) scaleX(-1); }
-  to { transform: translateX(-90px) scaleX(-1); }
+  from { transform: translateX(1680px); }
+  to { transform: translateX(-90px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .vehicle-right, .vehicle-left {
