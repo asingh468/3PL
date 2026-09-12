@@ -158,13 +158,9 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 .heroGrid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  gap: 56px;
-  padding: 84px 0 60px;
+  padding: 96px 0 72px;
 }
-.heroContent { max-width: 620px; }
+.heroContent { max-width: 680px; }
 .highlightList {
   display: flex; flex-wrap: wrap; gap: 12px 22px;
   margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--line);
@@ -603,9 +599,6 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
    Responsive
    ============================================================ */
 @media (max-width: 1024px) {
-  .heroGrid { grid-template-columns: 1fr; gap: 48px; }
-  .heroVisual { align-items: flex-start; }
-  .flowCard { max-width: 460px; }
   .trustGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
   .processFlow { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
   .serviceGroups { grid-template-columns: 1fr 1fr; }
