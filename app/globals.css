@@ -146,11 +146,14 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
    Hero
    ============================================================ */
 .hero {
+  position: relative;
   background: linear-gradient(180deg, #f4f7fb 0%, #ffffff 55%);
   border-bottom: 1px solid var(--line-soft);
   overflow: hidden;
 }
 .heroGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
@@ -168,7 +171,74 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; flex-shrink: 0;
 }
 .actions { display: flex; gap: 16px; align-items: center; margin-top: 32px; flex-wrap: wrap; }
-.heroNote { margin: 8px auto 0; text-align: left; }
+.heroNote { position: relative; z-index: 1; margin: 8px auto 0; text-align: left; }
+
+/* Animated cityscape backdrop -- subtle, CSS-only, sits behind hero content. */
+.heroCityscape {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cityscapeSvg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+.cityscapeBuilding {
+  fill: var(--line-soft);
+}
+.cityscapeRoad {
+  fill: #eef1f5;
+}
+.cityscapeRoadLine {
+  fill: var(--line);
+}
+.vehicleBody {
+  fill: var(--ink);
+  opacity: 0.55;
+}
+.vehicleBody-accent {
+  fill: var(--accent);
+  opacity: 0.7;
+}
+.vehicleCab {
+  fill: var(--white);
+  opacity: 0.85;
+}
+.vehicle-right {
+  animation: cityDriveRight linear infinite;
+  animation-duration: var(--vehicle-duration, 18s);
+}
+.vehicle-left {
+  animation: cityDriveLeft linear infinite;
+  animation-duration: var(--vehicle-duration, 22s);
+}
+.vehicle-speed-1 { --vehicle-duration: 14s; }
+.vehicle-speed-2 { --vehicle-duration: 20s; animation-delay: -6s; }
+.vehicle-speed-3 { --vehicle-duration: 17s; }
+.vehicle-speed-4 { --vehicle-duration: 24s; animation-delay: -10s; }
+
+@keyframes cityDriveRight {
+  from { transform: translateX(-80px); }
+  to { transform: translateX(1680px); }
+}
+@keyframes cityDriveLeft {
+  from { transform: translateX(1680px) scaleX(-1); }
+  to { transform: translateX(-80px) scaleX(-1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vehicle-right, .vehicle-left {
+    animation: none;
+  }
+}
+@media (max-width: 620px) {
+  .cityscapeSvg { opacity: 0.35; }
+}
 
 /* Hero visual: order-flow card */
 .heroVisual { position: relative; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; }

@@ -1,10 +1,12 @@
 import { heroHighlights, siteConfig } from "@/lib/site-config";
+import { HeroCityscape } from "@/components/HeroCityscape";
 
 const flowStages = ["Receiving", "Inventory", "Pick / Pack", "Carrier"];
 
 export function Hero() {
   return (
     <section id="top" className="hero">
+      <HeroCityscape />
       <div className="shell heroGrid">
         <div className="heroContent">
           <div className="eyebrow">{siteConfig.region} &bull; Ecommerce fulfillment</div>
