@@ -190,7 +190,7 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 55%;
+  height: 100%;
   opacity: 0.5;
   /* Fade the skyline out toward the top/left so it never sits behind the
      headline or body copy -- keeps text contrast high while still reading
@@ -357,7 +357,7 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 @media (max-width: 620px) {
   .cityscapeSvg {
     opacity: 0.3;
-    height: 30%;
+    height: 70%;
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
   }
