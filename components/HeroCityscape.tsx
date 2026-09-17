@@ -74,6 +74,16 @@ export function HeroCityscape() {
         preserveAspectRatio="xMidYMax slice"
         focusable="false"
       >
+        <defs>
+          <radialGradient id="cloudPuff" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="100%" stopColor="#dfe6ef" stopOpacity="0.85" />
+          </radialGradient>
+          <linearGradient id="planeShade" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#3a4a68" />
+            <stop offset="100%" stopColor="#141c2c" />
+          </linearGradient>
+        </defs>
         <g className="cityscapeSky">
           <g className="cloud cloud-1">
             <ellipse cx={0} cy={40} rx={30} ry={12} />
@@ -92,12 +102,14 @@ export function HeroCityscape() {
           </g>
 
           <g className="plane plane-1">
+            <ellipse cx={20} cy={16} rx={16} ry={3} className="planeShadow" />
             <path d="M0 0 L34 3 L44 0 L34 -3 Z" className="planeBody" />
             <path d="M14 0 L4 -10 L8 -10 L20 -1 Z" className="planeWing" />
             <path d="M14 0 L4 10 L8 10 L20 1 Z" className="planeWing" />
             <rect x={38} y={-1} width={5} height={2} className="planeTail" />
           </g>
           <g className="plane plane-2">
+            <ellipse cx={15} cy={12} rx={12} ry={2.4} className="planeShadow" />
             <path d="M0 0 L26 2 L34 0 L26 -2 Z" className="planeBody" />
             <path d="M10 0 L3 -8 L6 -8 L15 -1 Z" className="planeWing" />
             <path d="M10 0 L3 8 L6 8 L15 1 Z" className="planeWing" />
@@ -108,11 +120,19 @@ export function HeroCityscape() {
           {buildings.map((b, i) => {
             const palette = ["", "cityscapeBuilding-blue", "cityscapeBuilding-teal", "cityscapeBuilding-amber", "cityscapeBuilding-rose", "cityscapeBuilding-violet"];
             const colorClass = palette[i % palette.length];
+            const depth = Math.min(9, b.w * 0.22 + 3);
+            const top = 230 - b.h;
+            const sidePoints = `${b.x + b.w},${top} ${b.x + b.w + depth},${top - depth} ${b.x + b.w + depth},${top - depth + b.h} ${b.x + b.w},${top + b.h}`;
+            const roofPoints = `${b.x},${top} ${b.x + depth},${top - depth} ${b.x + b.w + depth},${top - depth} ${b.x + b.w},${top}`;
             return (
-            <g key={i}>
+            <g key={i} className="cityscapeBuildingGroup">
+              {/* Right-side face: darker shade of the front color, gives the block volume. */}
+              <polygon points={sidePoints} className={`cityscapeBuildingSide ${colorClass}`} />
+              {/* Top/roof face: lighter shade, catching the light from above. */}
+              <polygon points={roofPoints} className={`cityscapeBuildingTop ${colorClass}`} />
               <rect
                 x={b.x}
-                y={230 - b.h}
+                y={top}
                 width={b.w}
                 height={b.h}
                 rx={2}
@@ -120,10 +140,10 @@ export function HeroCityscape() {
               />
               <rect
                 x={b.x}
-                y={230 - b.h}
+                y={top}
                 width={b.w}
-                height={4}
-                className="cityscapeRoof"
+                height={3}
+                className="cityscapeRoofEdge"
               />
               {windowRows(b, i).map((win, wi) => (
                 <rect
@@ -146,9 +166,12 @@ export function HeroCityscape() {
 
         <g className="cityscapeVehicles">
           <g className="vehicle vehicle-right vehicle-speed-1">
+            <ellipse cx={35} cy={269} rx={38} ry={4} className="vehicleShadow" />
             <rect x={2} y={244} width={58} height={20} rx={4} className="vehicleTrailer" />
+            <rect x={2} y={244} width={58} height={6} rx={3} className="vehicleTopHighlight" />
             <rect x={4} y={247} width={26} height={12} rx={1.5} className="vehicleTrailerPanel" />
             <rect x={58} y={244} width={16} height={20} rx={3} className="vehicleTruckCab" />
+            <rect x={58} y={244} width={16} height={5} rx={2} className="vehicleTopHighlight" />
             <rect x={61} y={247} width={7} height={7} rx={1} className="vehicleWindow" />
             <circle cx={14} cy={266} r={5} className="vehicleWheel" />
             <circle cx={50} cy={266} r={5} className="vehicleWheel" />
@@ -156,16 +179,21 @@ export function HeroCityscape() {
           </g>
 
           <g className="vehicle vehicle-right vehicle-speed-2">
+            <ellipse cx={20} cy={269} rx={22} ry={3.4} className="vehicleShadow" />
             <rect x={2} y={248} width={38} height={16} rx={5} className="vehicleVan vehicleVan-accent" />
+            <rect x={2} y={248} width={38} height={5} rx={2.5} className="vehicleTopHighlight" />
             <rect x={26} y={251} width={10} height={8} rx={1.5} className="vehicleWindow" />
             <circle cx={11} cy={266} r={4.5} className="vehicleWheel" />
             <circle cx={31} cy={266} r={4.5} className="vehicleWheel" />
           </g>
 
           <g className="vehicle vehicle-left vehicle-speed-3">
+            <ellipse cx={18} cy={269} rx={38} ry={4} className="vehicleShadow" />
             <rect x={2} y={244} width={58} height={20} rx={4} className="vehicleTrailer vehicleTrailer-dark" />
+            <rect x={2} y={244} width={58} height={6} rx={3} className="vehicleTopHighlight" />
             <rect x={30} y={247} width={26} height={12} rx={1.5} className="vehicleTrailerPanel" />
             <rect x={-14} y={244} width={16} height={20} rx={3} className="vehicleTruckCab" />
+            <rect x={-14} y={244} width={16} height={5} rx={2} className="vehicleTopHighlight" />
             <rect x={-11} y={247} width={7} height={7} rx={1} className="vehicleWindow" />
             <circle cx={0} cy={266} r={5} className="vehicleWheel" />
             <circle cx={14} cy={266} r={5} className="vehicleWheel" />
@@ -173,7 +201,9 @@ export function HeroCityscape() {
           </g>
 
           <g className="vehicle vehicle-left vehicle-speed-4">
+            <ellipse cx={19} cy={269} rx={22} ry={3.4} className="vehicleShadow" />
             <rect x={2} y={248} width={34} height={16} rx={5} className="vehicleVan" />
+            <rect x={2} y={248} width={34} height={5} rx={2.5} className="vehicleTopHighlight" />
             <rect x={6} y={251} width={10} height={8} rx={1.5} className="vehicleWindow" />
             <circle cx={11} cy={266} r={4.5} className="vehicleWheel" />
             <circle cx={27} cy={266} r={4.5} className="vehicleWheel" />
