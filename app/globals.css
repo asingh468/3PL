@@ -516,18 +516,16 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 .checklist { display: flex; flex-direction: column; gap: 13px; margin-top: 26px; }
 .checklist li { padding-left: 28px; position: relative; color: var(--ink); font-weight: 550; line-height: 1.5; font-size: 0.96rem; }
 .checklist li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
-.mapVisual { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.mapShape {
-  position: relative; width: 220px; height: 260px; background: var(--navy-950);
-  border-radius: 48% 52% 44% 56% / 58% 46% 54% 42%;
-  box-shadow: var(--shadow-lg);
-}
-.mapPin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(47,95,224,0.18); }
-.mapPin-1 { top: 30%; left: 42%; }
-.mapPin-2 { top: 52%; left: 30%; }
-.mapPin-3 { top: 70%; left: 50%; }
-.mapLine { position: absolute; top: 30%; left: 32%; width: 1px; height: 42%; background: rgba(255,255,255,0.18); transform: rotate(12deg); }
+.mapVisual { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%; }
+.mapIllustration { display: block; width: 100%; max-width: 520px; height: auto; border-radius: 28px; box-shadow: var(--shadow-lg); }
+.mapStateLabel { fill: #8a9aa0; font: 600 11px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.12em; }
+.mapRoute { fill: none; stroke: #2f5fe0; stroke-width: 2.5; stroke-dasharray: 5 8; stroke-linecap: round; opacity: 0.75; }
+.mapDestination { fill: #fff; stroke: #2f5fe0; stroke-width: 3; }
+.mapHubHalo { fill: rgba(47,95,224,0.16); }
+.mapHub { fill: #2f5fe0; }
+.mapHubLabel { fill: #18314d; font: 700 10px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.09em; }
 .mapCaption { font-size: 0.84rem; color: var(--muted); font-weight: 600; }
+.mapServiceArea { color: var(--muted); font-size: 0.75rem; line-height: 1.4; text-align: center; }
 
 /* Human service */
 .humanSection { background: var(--navy-950); color: white; }
@@ -576,12 +574,16 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 /* FAQ */
 .faqList { display: flex; flex-direction: column; gap: 4px; max-width: 780px; }
 .faqItem { border-bottom: 1px solid var(--line); }
+.faqQuestion::-webkit-details-marker { display: none; }
 .faqQuestion {
   width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px;
   background: none; border: none; padding: 20px 0; font-size: 1rem; font-weight: 620; text-align: left;
-  cursor: pointer; color: var(--ink);
+  cursor: pointer; color: var(--ink); list-style: none;
 }
 .faqQuestion:hover { color: var(--accent); }
+.faqQuestion:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.faqToggle::before { content: "+"; }
+.faqItem[open] .faqToggle::before { content: "−"; }
 .faqAnswer { margin: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 680px; }
 
 /* Footer */
@@ -603,7 +605,8 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   .processFlow { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
   .serviceGroups { grid-template-columns: 1fr 1fr; }
   .pricingGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .regionalGrid, .humanGrid, .ctaInner { grid-template-columns: 1fr; }
+  .regionalGrid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 36px; }
+  .humanGrid, .ctaInner { grid-template-columns: 1fr; }
   .mapVisual { align-items: flex-start; }
 }
 
@@ -657,6 +660,8 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   .serviceGroups { grid-template-columns: 1fr; }
   .comparisonGrid { grid-template-columns: 1fr; }
   .pricingGrid { grid-template-columns: 1fr; }
+  .regionalGrid { grid-template-columns: 1fr; gap: 36px; }
+  .mapVisual { align-items: center; }
   .secondaryRates { grid-template-columns: 1fr; }
   .formGrid { grid-template-columns: 1fr; }
   .footerInner { flex-direction: column; align-items: flex-start; }

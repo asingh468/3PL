@@ -20,14 +20,10 @@ export function Footer() {
           </a>
         </nav>
 
-        <a className="button ghost" href="#contact">
-          Talk to Our Team
+        <a className="button" href="#contact">
+          Get Connected
         </a>
 
-        <p className="footerNote">
-          Working name -- business name, trademark, and final service terms are subject to launch agreements and may
-          change before public launch.
-        </p>
       </div>
     </footer>
   );

@@ -12,7 +12,7 @@ export function Pricing() {
         <div className="eyebrow">Volume-based pricing</div>
         <h2>More volume, lower fulfillment rate.</h2>
         <p className="lede small">
-          Straightforward per-order pricing. Service quality stays consistent across every tier.
+          Competitive, volume-based pricing designed to help your business grow, with service quality that stays consistent across every tier.
         </p>
       </div>
 

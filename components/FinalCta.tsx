@@ -10,8 +10,8 @@ export function FinalCta() {
           <a className="button light" href="#contact">
             Get a Fulfillment Quote
           </a>
-          <a className="button ghost ghostOnDark" href="#contact">
-            Talk to Our Team
+          <a className="button light" href="#contact">
+            Get Connected
           </a>
         </div>
       </div>

@@ -195,22 +195,47 @@ export const faqs = [
   {
     question: "Do you work with Shopify?",
     answer:
-      "Yes -- Shopify and WMS-connected workflows are central to how we operate, so orders and inventory stay in sync without manual re-entry.",
+      "Yes. Shopify orders can flow into our fulfillment workflow, with order and inventory information connected to reduce manual re-entry. We’ll review your store setup and requirements during the fit conversation.",
+  },
+  {
+    question: "What fulfillment services do you offer?",
+    answer:
+      "Services include receiving, storage, inventory management, pick and pack, shipping handoff, returns processing, light kitting, and special projects. We’ll confirm which services fit your products and operating needs before getting started.",
   },
   {
     question: "How does same-day fulfillment work?",
     answer:
-      "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, our operational capacity, and carrier cutoff times.",
+      "Eligible orders may qualify for same-day fulfillment based on the terms in your service agreement, operational capacity, and carrier cutoff times. Same-day processing is not a guarantee of same-day delivery; we’ll clarify the applicable order and carrier cutoffs during onboarding.",
   },
   {
     question: "Do I need a minimum order volume?",
     answer:
-      "Our initial focus is brands doing roughly 100 or more orders per month, with room to grow into higher volume tiers over time.",
+      "We’re initially focused on ecommerce brands doing roughly 100 or more orders per month, with room to grow. Share your current volume and plans with us and we can discuss whether the fit makes sense.",
+  },
+  {
+    question: "How is pricing determined?",
+    answer:
+      "We provide a quote based on factors such as monthly order volume, storage footprint, packaging, receiving complexity, and returns. Share your requirements for a tailored review; final rates and included services are confirmed in your quote and service agreement.",
   },
   {
     question: "Can I use my own carrier account?",
     answer:
-      "This is something we can discuss during your fit review -- let us know your current carrier setup and we'll talk through the options.",
+      "We can review your carrier setup during the fit conversation. Tell us which carriers and account arrangements you use, and we’ll discuss what can be supported for your workflow.",
+  },
+  {
+    question: "How are returns handled?",
+    answer:
+      "Returns can be received and inspected, then restocked or otherwise dispositioned according to the process agreed for your account. We’ll discuss product-specific requirements and available options before launch.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Start by sharing your order volume, product categories, SKU count, and fulfillment needs through the contact form. We’ll review fit and discuss the store connection, inventory intake, and service details before any inventory is sent.",
+  },
+  {
+    question: "Where is your facility?",
+    answer:
+      "Octave Logistics serves brands from Northern California. We don’t publish a facility address here; operating-location details can be discussed during a fit review and are subject to the final operating arrangement.",
   },
   {
     question: "Can I visit my inventory / facility?",

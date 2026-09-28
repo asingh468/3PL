@@ -17,8 +17,8 @@ export function Hero() {
             <a className="button" href="#contact">
               Get a Fulfillment Quote
             </a>
-            <a className="button ghost" href="#contact">
-              Talk to Our Team
+            <a className="button" href="#contact">
+              Get Connected
             </a>
           </div>
           <ul className="highlightList" aria-label="Why brands choose us">
@@ -28,9 +28,6 @@ export function Hero() {
           </ul>
         </div>
       </div>
-      <p className="note shell heroNote">
-        Working website draft. Final service levels and pricing remain subject to client agreement.
-      </p>
     </section>
   );
 }

@@ -24,8 +24,8 @@ export function Header() {
           ))}
         </ul>
         <div className="navActions">
-          <a className="button ghost navSecondary" href="#contact">
-            Talk to Our Team
+          <a className="button navSecondary" href="#contact">
+            Get Connected
           </a>
           <a className="button navCta" href="#contact">
             Get a Fulfillment Quote
