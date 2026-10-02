@@ -53,7 +53,7 @@ export function RegionalAdvantage() {
             <text x="232" y="233" className="mapHubLabel">NORTHERN CALIFORNIA</text>
           </svg>
           <span className="mapCaption">Northern California &amp; West Coast reach</span>
-          <span className="mapServiceArea">Currently servicing California 3PL&apos;s, shipping worldwide.</span>
+          <span className="mapServiceArea">Currently servicing California clients, shipping worldwide.</span>
         </div>
       </div>
     </section>

@@ -69,7 +69,7 @@ export async function submitContactForm(
     return {
       status: "not-configured",
       message:
-        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure RESEND_API_KEY and a contact email in .env.local, or reach out directly for now.",
+        "Thanks! Your info was validated, but form delivery isn't connected yet. Please configure RESEND_API_KEY and a contact email in .env.local, or reach out directly for now.",
     };
   }
 

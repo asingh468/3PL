@@ -14,10 +14,10 @@ export function Hero() {
             clear pricing, and reliable fulfillment without feeling like a small account in a giant network.
           </p>
           <div className="actions">
-            <a className="button" href="#contact">
+            <a className="button" href="/contact#contact">
               Get a Fulfillment Quote
             </a>
-            <a className="button" href="#contact">
+            <a className="button" href="/contact#contact">
               Get Connected
             </a>
           </div>

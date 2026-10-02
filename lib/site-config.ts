@@ -8,11 +8,11 @@ export const siteConfig = {
   tagline: "Fast, hands-on fulfillment for growing ecommerce brands.",
   region: "Northern California",
   // Set via NEXT_PUBLIC_CONTACT_EMAIL in .env.local. Leave blank until a real
-  // business email exists -- do not publish a placeholder/fake address.
+  // business email exists. Do not publish a placeholder or fake address.
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
 };
 
-// Hero supporting highlights -- shown as a compact list under the hero copy.
+// Hero supporting highlights shown as a compact list under the hero copy.
 export const heroHighlights = [
   "Northern California fulfillment",
   "Direct human support, not ticket queues",
@@ -28,7 +28,7 @@ export const trustHighlights = [
   },
   {
     title: "Direct Human Support",
-    body: "Clients speak directly with the people who actually know their account -- not a rotating support queue.",
+    body: "Clients speak directly with the people who actually know their account, not a rotating support queue.",
   },
   {
     title: "Transparent Pricing",
@@ -56,7 +56,7 @@ export const processSteps = [
   },
   {
     title: "Orders Sync Automatically",
-    body: "Ecommerce orders flow directly into the fulfillment queue -- no manual re-entry.",
+    body: "Ecommerce orders flow directly into the fulfillment queue without manual re-entry.",
   },
   {
     title: "Pick, Pack & Ship",
@@ -66,7 +66,7 @@ export const processSteps = [
 
 export const sameDayCallout = {
   title: "Same-day fulfillment, when it counts",
-  body: "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.",
+  body: "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee; it is an operating target we build our workflow around.",
 };
 
 // Services, grouped so the section doesn't become a wall of equal cards.
@@ -137,7 +137,7 @@ export const regionalAdvantage = {
 export const humanService = {
   eyebrow: "Human, not a black box",
   heading: "Your inventory shouldn't disappear into a black box.",
-  body: "When something needs attention, you talk to a person who already knows your account -- not a new agent starting from zero every time. We proactively communicate issues before they become problems, instead of waiting for you to ask.",
+  body: "When something needs attention, you talk to a person who already knows your account, not a new agent starting from zero every time. We proactively communicate issues before they become problems instead of waiting for you to ask.",
   points: [
     "Direct access to the people running your fulfillment",
     "Proactive communication when something needs attention",
@@ -160,7 +160,7 @@ export const proposedPricing: PricingTier[] = [
   { name: "Starter", orders: "1-499 orders/mo", base: "Custom quote", extra: "Request pricing" },
   { name: "Growth", orders: "500-1,499 orders/mo", base: "Custom quote", extra: "Request pricing" },
   { name: "Scale", orders: "1,500-4,999 orders/mo", base: "Custom quote", extra: "Request pricing" },
-  { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Talk to the founding team" },
+  { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Request pricing" },
 ];
 
 // Internal/planning rates -- do not display these publicly. Kept here only
@@ -177,7 +177,7 @@ export const secondaryRates = [
 ];
 
 export const pricingNote =
-  "Higher volume unlocks better per-order pricing -- service quality stays consistent across every tier. Pricing is quoted directly based on your volume, storage footprint, packaging, receiving complexity, and returns rate.";
+  "Higher volume unlocks better per-order pricing, and service quality stays consistent across every tier. Pricing is quoted directly based on your volume, storage footprint, packaging, receiving complexity, and returns rate.";
 
 export const idealClientPoints = [
   "Shopify / ecommerce brand selling physical consumer goods",
@@ -250,6 +250,7 @@ export const finalCta = {
 };
 
 export const footerLinks = {
+  about: { label: "About Us", href: "/about" },
   privacy: { label: "Privacy Policy", href: "#", todo: true },
   terms: { label: "Terms of Service", href: "#", todo: true },
 };

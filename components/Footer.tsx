@@ -10,6 +10,7 @@ export function Footer() {
         </div>
 
         <nav className="footerLinks" aria-label="Legal">
+          <a href={footerLinks.about.href}>{footerLinks.about.label}</a>
           <a href={footerLinks.privacy.href}>
             {footerLinks.privacy.label}
             {footerLinks.privacy.todo && <span className="todoTag"> (TODO)</span>}
@@ -20,7 +21,7 @@ export function Footer() {
           </a>
         </nav>
 
-        <a className="button" href="#contact">
+        <a className="button" href="/contact#contact">
           Get Connected
         </a>
 
