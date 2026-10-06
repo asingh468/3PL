@@ -145,6 +145,7 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 .navLinks a:hover { color: var(--ink); }
 .navActions { display: flex; align-items: center; gap: 12px; }
 .navSecondary { display: none; }
+.mobileNav { display: none; }
 
 /* ============================================================
    Hero
@@ -580,6 +581,7 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 .field input, .field select, .field textarea {
   border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06);
   color: white; padding: 11px 13px; font-size: 0.94rem; font-family: inherit; transition: background 0.15s ease, border-color 0.15s ease;
+  width: 100%; min-width: 0; min-height: 48px;
 }
 .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.45); }
 .field input:focus, .field select:focus, .field textarea:focus { background: rgba(255,255,255,0.12); border-color: var(--accent); }
@@ -679,7 +681,32 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
 
 @media (max-width: 900px) {
   .navLinks { display: none; }
-  .navSecondary { display: none; }
+  .navActions { display: none; }
+  .mobileNav { display: block; position: relative; margin-left: auto; }
+  .mobileNav summary {
+    display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 12px;
+    border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink);
+    font-size: 0.9rem; font-weight: 650; cursor: pointer; list-style: none;
+  }
+  .mobileNav summary::-webkit-details-marker { display: none; }
+  .mobileNav summary:hover, .mobileNav[open] summary { background: var(--white); border-color: var(--accent); }
+  .mobileNavIcon, .mobileNavIcon::before, .mobileNavIcon::after {
+    display: block; width: 16px; height: 2px; background: currentColor; border-radius: 2px;
+  }
+  .mobileNavIcon { position: relative; }
+  .mobileNavIcon::before, .mobileNavIcon::after { content: ""; position: absolute; left: 0; }
+  .mobileNavIcon::before { top: -5px; }
+  .mobileNavIcon::after { top: 5px; }
+  .mobileNavLinks {
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 40;
+    display: grid; gap: 2px; width: min(320px, calc(100vw - 32px)); padding: 8px;
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg); color: var(--ink);
+  }
+  .mobileNavLinks a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; }
+  .mobileNavLinks a:hover, .mobileNavLinks a:focus-visible { background: var(--accent-soft); color: var(--accent-dark); }
+  .mobileNavLinks .mobileNavCta { margin-top: 4px; background: var(--ink); color: var(--white); font-weight: 650; }
+  .mobileNavLinks .mobileNavCta:hover, .mobileNavLinks .mobileNavCta:focus-visible { background: var(--accent-dark); color: var(--white); }
 }
 
 @media (max-width: 720px) {
@@ -728,11 +755,13 @@ h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 650; }
   .comparisonGrid { grid-template-columns: 1fr; }
   .pricingGrid { grid-template-columns: 1fr; }
   .regionalGrid { grid-template-columns: 1fr; gap: 36px; }
+  .aboutStory, .aboutValues { grid-template-columns: 1fr; }
+  .aboutStory { gap: 16px; }
+  .aboutStoryCard, .aboutValue { padding: 22px; }
   .mapVisual { align-items: center; }
   .secondaryRates { grid-template-columns: 1fr; }
   .formGrid { grid-template-columns: 1fr; }
   .footerInner { flex-direction: column; align-items: flex-start; }
-  .navActions .navCta { padding: 0 16px; font-size: 0.88rem; }
 }
 
 /* Placed last so it overrides animation rules defined in any media query above. */

@@ -24,6 +24,24 @@ export function Header() {
             </li>
           ))}
         </ul>
+        <details className="mobileNav">
+          <summary>
+            <span className="mobileNavIcon" aria-hidden="true" />
+            Menu
+          </summary>
+          <ul className="mobileNavLinks">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+            <li>
+              <a className="mobileNavCta" href="/contact#contact">
+                Get a Fulfillment Quote
+              </a>
+            </li>
+          </ul>
+        </details>
         <div className="navActions">
           <a className="button navSecondary" href="/contact#contact">
             Get Connected
