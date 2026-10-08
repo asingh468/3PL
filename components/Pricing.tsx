@@ -9,10 +9,10 @@ export function Pricing() {
   return (
     <section id="pricing" className="section shell">
       <div className="sectionHead">
-        <div className="eyebrow">Volume-based pricing</div>
+        <div className="eyebrow">Volume-based packaging</div>
         <h2>More volume, lower fulfillment rate.</h2>
         <p className="lede small">
-          Straightforward per-order pricing. Service quality stays consistent across every tier.
+          Competitive, volume-based packaging designed to help your business grow, with service quality that stays consistent across every tier.
         </p>
       </div>
 
@@ -23,7 +23,9 @@ export function Pricing() {
             <div className="tier">{tier.name}</div>
             <div className="orders">{tier.orders}</div>
             <div className="price">{tier.base}</div>
-            <div className="extra">{tier.extra}</div>
+            <div className="extra">
+              <a href="/contact#contact" className="packageLink">{tier.extra}</a>
+            </div>
           </article>
         ))}
       </div>

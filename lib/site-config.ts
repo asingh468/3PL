@@ -12,7 +12,7 @@ export const siteConfig = {
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "arjun.singh@8octave.com",
 };
 
-// Hero supporting highlights -- shown as a compact list under the hero copy.
+// Hero supporting highlights shown as a compact list under the hero copy.
 export const heroHighlights = [
   "Northern California fulfillment",
   "Direct human support, not ticket queues",
@@ -28,7 +28,7 @@ export const trustHighlights = [
   },
   {
     title: "Direct Human Support",
-    body: "Clients speak directly with the people who actually know their account -- not a rotating support queue.",
+    body: "Clients speak directly with the people who actually know their account, not a rotating support queue.",
   },
   {
     title: "Transparent Pricing",
@@ -56,7 +56,7 @@ export const processSteps = [
   },
   {
     title: "Orders Sync Automatically",
-    body: "Ecommerce orders flow directly into the fulfillment queue -- no manual re-entry.",
+    body: "Ecommerce orders flow directly into the fulfillment queue without manual re-entry.",
   },
   {
     title: "Pick, Pack & Ship",
@@ -66,7 +66,7 @@ export const processSteps = [
 
 export const sameDayCallout = {
   title: "Same-day fulfillment, when it counts",
-  body: "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee -- it's an operating target we build our workflow around.",
+  body: "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, operational capacity, and carrier cutoff times. This is not an unconditional guarantee; it is an operating target we build our workflow around.",
 };
 
 // Services, grouped so the section doesn't become a wall of equal cards.
@@ -137,7 +137,7 @@ export const regionalAdvantage = {
 export const humanService = {
   eyebrow: "Human, not a black box",
   heading: "Your inventory shouldn't disappear into a black box.",
-  body: "When something needs attention, you talk to a person who already knows your account -- not a new agent starting from zero every time. We proactively communicate issues before they become problems, instead of waiting for you to ask.",
+  body: "When something needs attention, you talk to a person who already knows your account, not a new agent starting from zero every time. We proactively communicate issues before they become problems instead of waiting for you to ask.",
   points: [
     "Direct access to the people running your fulfillment",
     "Proactive communication when something needs attention",
@@ -160,7 +160,7 @@ export const proposedPricing: PricingTier[] = [
   { name: "Starter", orders: "1-499 orders/mo", base: "Custom quote", extra: "Request pricing" },
   { name: "Growth", orders: "500-1,499 orders/mo", base: "Custom quote", extra: "Request pricing" },
   { name: "Scale", orders: "1,500-4,999 orders/mo", base: "Custom quote", extra: "Request pricing" },
-  { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Talk to the founding team" },
+  { name: "Enterprise", orders: "5,000+ orders/mo", base: "Custom quote", extra: "Request pricing" },
 ];
 
 // Internal/planning rates -- do not display these publicly. Kept here only
@@ -177,7 +177,7 @@ export const secondaryRates = [
 ];
 
 export const pricingNote =
-  "Higher volume unlocks better per-order pricing -- service quality stays consistent across every tier. Pricing is quoted directly based on your volume, storage footprint, packaging, receiving complexity, and returns rate.";
+  "Higher volume unlocks better per-order pricing, and service quality stays consistent across every tier. Pricing is quoted directly based on your volume, storage footprint, packaging, receiving complexity, and returns rate.";
 
 export const idealClientPoints = [
   "Shopify / ecommerce brand selling physical consumer goods",
@@ -195,22 +195,47 @@ export const faqs = [
   {
     question: "Do you work with Shopify?",
     answer:
-      "Yes -- Shopify and WMS-connected workflows are central to how we operate, so orders and inventory stay in sync without manual re-entry.",
+      "Yes. Shopify orders can flow into our fulfillment workflow, with order and inventory information connected to reduce manual re-entry. We’ll review your store setup and requirements during the fit conversation.",
+  },
+  {
+    question: "What fulfillment services do you offer?",
+    answer:
+      "Services include receiving, storage, inventory management, pick and pack, shipping handoff, returns processing, light kitting, and special projects. We’ll confirm which services fit your products and operating needs before getting started.",
   },
   {
     question: "How does same-day fulfillment work?",
     answer:
-      "Eligible orders can qualify for same-day fulfillment, subject to your service agreement, our operational capacity, and carrier cutoff times.",
+      "Eligible orders may qualify for same-day fulfillment based on the terms in your service agreement, operational capacity, and carrier cutoff times. Same-day processing is not a guarantee of same-day delivery; we’ll clarify the applicable order and carrier cutoffs during onboarding.",
   },
   {
     question: "Do I need a minimum order volume?",
     answer:
-      "Our initial focus is brands doing roughly 100 or more orders per month, with room to grow into higher volume tiers over time.",
+      "We’re initially focused on ecommerce brands doing roughly 100 or more orders per month, with room to grow. Share your current volume and plans with us and we can discuss whether the fit makes sense.",
+  },
+  {
+    question: "How is pricing determined?",
+    answer:
+      "We provide a quote based on factors such as monthly order volume, storage footprint, packaging, receiving complexity, and returns. Share your requirements for a tailored review; final rates and included services are confirmed in your quote and service agreement.",
   },
   {
     question: "Can I use my own carrier account?",
     answer:
-      "This is something we can discuss during your fit review -- let us know your current carrier setup and we'll talk through the options.",
+      "We can review your carrier setup during the fit conversation. Tell us which carriers and account arrangements you use, and we’ll discuss what can be supported for your workflow.",
+  },
+  {
+    question: "How are returns handled?",
+    answer:
+      "Returns can be received and inspected, then restocked or otherwise dispositioned according to the process agreed for your account. We’ll discuss product-specific requirements and available options before launch.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Start by sharing your order volume, product categories, SKU count, and fulfillment needs through the contact form. We’ll review fit and discuss the store connection, inventory intake, and service details before any inventory is sent.",
+  },
+  {
+    question: "Where is your facility?",
+    answer:
+      "Octave Logistics serves brands from Northern California. We don’t publish a facility address here; operating-location details can be discussed during a fit review and are subject to the final operating arrangement.",
   },
   {
     question: "Can I visit my inventory / facility?",
@@ -225,6 +250,7 @@ export const finalCta = {
 };
 
 export const footerLinks = {
+  about: { label: "About Us", href: "/about" },
   privacy: { label: "Privacy Policy", href: "#", todo: true },
   terms: { label: "Terms of Service", href: "#", todo: true },
 };

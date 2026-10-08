@@ -12,7 +12,7 @@ export function ContactForm() {
     <section id="contact" className="section cta">
       <div className="shell ctaInner">
         <div className="ctaIntro">
-          <div className="eyebrow">Talk with the founding team</div>
+          <div className="eyebrow">Request pricing</div>
           <h2>See whether Octave Logistics fits your fulfillment needs.</h2>
           <p>Tell us roughly what you ship, your monthly order volume, and what you want to improve about fulfillment.</p>
         </div>

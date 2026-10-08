@@ -10,6 +10,7 @@ export function Footer() {
         </div>
 
         <nav className="footerLinks" aria-label="Legal">
+          <a href={footerLinks.about.href}>{footerLinks.about.label}</a>
           <a href={footerLinks.privacy.href}>
             {footerLinks.privacy.label}
             {footerLinks.privacy.todo && <span className="todoTag"> (TODO)</span>}
@@ -20,14 +21,10 @@ export function Footer() {
           </a>
         </nav>
 
-        <a className="button ghost" href="#contact">
-          Talk to Our Team
+        <a className="button" href="/contact#contact">
+          Get Connected
         </a>
 
-        <p className="footerNote">
-          Working name -- business name, trademark, and final service terms are subject to launch agreements and may
-          change before public launch.
-        </p>
       </div>
     </footer>
   );

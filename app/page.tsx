@@ -9,8 +9,6 @@ import { RegionalAdvantage } from "@/components/RegionalAdvantage";
 import { HumanService } from "@/components/HumanService";
 import { IdealClient } from "@/components/IdealClient";
 import { FinalCta } from "@/components/FinalCta";
-import { ContactForm } from "@/components/ContactForm";
-import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -28,8 +26,6 @@ export default function Home() {
         <HumanService />
         <IdealClient />
         <FinalCta />
-        <ContactForm />
-        <FAQ />
       </main>
       <Footer />
     </>
