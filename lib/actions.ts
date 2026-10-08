@@ -1,5 +1,6 @@
 "use server";
 
+import { Resend } from "resend";
 import { siteConfig } from "@/lib/site-config";
 
 export type ContactFormState = {
@@ -64,24 +65,54 @@ export async function submitContactForm(
   const emailProviderConfigured = Boolean(process.env.RESEND_API_KEY);
 
   if (!emailProviderConfigured || !siteConfig.contactEmail) {
-    // TODO(founders): configure RESEND_API_KEY and NEXT_PUBLIC_CONTACT_EMAIL,
-    // then implement the actual send using your provider's SDK here.
     return {
       status: "not-configured",
       message:
-        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure RESEND_API_KEY and a contact email in .env.local, or reach out directly for now.",
+        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure RESEND_API_KEY in .env.local, or reach out directly for now.",
     };
   }
 
-  // TODO(founders): replace with a real send once RESEND_API_KEY is set.
-  // Example:
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: "Octave Logistics <no-reply@yourdomain.com>",
-  //   to: siteConfig.contactEmail,
-  //   subject: `New fulfillment inquiry from ${payload.company}`,
-  //   text: JSON.stringify(payload, null, 2),
-  // });
+  const summaryRows = [
+    ["Name", payload.name],
+    ["Company", payload.company],
+    ["Email", payload.email],
+    ["Store URL", payload.storeUrl],
+    ["Monthly orders", payload.monthlyOrders],
+    ["Product type", payload.productType],
+    ["Current fulfillment", payload.currentFulfillment],
+    ["Help with", payload.helpWith],
+  ].filter(([, value]) => value);
+
+  const textBody = summaryRows.map(([label, value]) => `${label}: ${value}`).join("\n");
+  const htmlBody = `<h2>New fulfillment inquiry</h2><table cellpadding="6">${summaryRows
+    .map(([label, value]) => `<tr><td><strong>${label}</strong></td><td>${value}</td></tr>`)
+    .join("")}</table>`;
+
+  try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { error } = await resend.emails.send({
+      from: "Octave Logistics Website <onboarding@resend.dev>",
+      to: siteConfig.contactEmail,
+      replyTo: payload.email,
+      subject: `New fulfillment inquiry from ${payload.company}`,
+      text: textBody,
+      html: htmlBody,
+    });
+
+    if (error) {
+      console.error("Resend send error:", error);
+      return {
+        status: "error",
+        message: "Something went wrong sending your request. Please try again or email us directly.",
+      };
+    }
+  } catch (err) {
+    console.error("Resend send exception:", err);
+    return {
+      status: "error",
+      message: "Something went wrong sending your request. Please try again or email us directly.",
+    };
+  }
 
   return {
     status: "success",

@@ -17,16 +17,21 @@ Visit [http://localhost:3000](http://localhost:3000).
 Copy `.env.example` to `.env.local` and fill in real values:
 
 ```bash
-NEXT_PUBLIC_CONTACT_EMAIL=your-real-business-email@example.com
-RESEND_API_KEY=   # optional, enables the contact form to actually send email
+NEXT_PUBLIC_CONTACT_EMAIL=arjun.singh@8octave.com   # defaults to this if unset
+RESEND_API_KEY=   # required to actually send contact form emails
 ```
 
-- Do not publish a fake contact email. The footer/CTA mailto link and the contact
-  form both stay in a clearly-labeled "not configured" state until real values are set.
+- The contact form delivers to `arjun.singh@8octave.com` by default (see
+  `siteConfig.contactEmail` in [lib/site-config.ts](lib/site-config.ts)). Override
+  with `NEXT_PUBLIC_CONTACT_EMAIL` if that ever changes.
 - The contact form is implemented as a Next.js server action in
-  [lib/actions.ts](lib/actions.ts). It validates input locally and returns a clear
-  message if `RESEND_API_KEY` / `NEXT_PUBLIC_CONTACT_EMAIL` aren't set — it never
-  fakes a successful submission.
+  [lib/actions.ts](lib/actions.ts) using the [Resend](https://resend.com) API. It
+  validates input locally, and until `RESEND_API_KEY` is set it returns a clear
+  "not configured" message rather than faking a successful submission.
+- Sign up at resend.com, verify a sending domain (or use their shared
+  `onboarding@resend.dev` sender for testing), grab an API key, and set
+  `RESEND_API_KEY` in `.env.local` (and in your hosting provider's env settings)
+  to go live.
 
 ## Editing site content
 
@@ -50,8 +55,7 @@ touching component/JSX files. Key exports:
 ## Before public launch — founder TODOs
 
 - [ ] Confirm final business name / complete trademark & domain checks (current name is a working name only).
-- [ ] Set a real `NEXT_PUBLIC_CONTACT_EMAIL`.
-- [ ] Configure `RESEND_API_KEY` (or another provider) and wire up the TODO block in [lib/actions.ts](lib/actions.ts) if you want the form to send real email.
+- [ ] Set `RESEND_API_KEY` in production (Vercel project settings) to activate real contact-form email delivery to `arjun.singh@8octave.com`.
 - [ ] Write real Privacy Policy / Terms of Service pages and update the links in [lib/site-config.ts](lib/site-config.ts) (`footerLinks`).
 - [ ] Confirm/finalize pricing figures in [lib/site-config.ts](lib/site-config.ts) (`proposedPricing`, `secondaryRates`).
 - [ ] Revisit the "working name" / pre-launch disclaimers in the footer once terms are final.

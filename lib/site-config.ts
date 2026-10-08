@@ -7,9 +7,9 @@ export const siteConfig = {
   shortName: "Octave Logistics",
   tagline: "Fast, hands-on fulfillment for growing ecommerce brands.",
   region: "Northern California",
-  // Set via NEXT_PUBLIC_CONTACT_EMAIL in .env.local. Leave blank until a real
-  // business email exists -- do not publish a placeholder/fake address.
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+  // Set via NEXT_PUBLIC_CONTACT_EMAIL in .env.local to override. Defaults to
+  // the real business inbox so the contact form has somewhere to deliver to.
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "arjun.singh@8octave.com",
 };
 
 // Hero supporting highlights -- shown as a compact list under the hero copy.
