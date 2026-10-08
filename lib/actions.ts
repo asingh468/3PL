@@ -68,10 +68,14 @@ export async function submitContactForm(
   const emailProviderConfigured = Boolean(gmailUser && gmailAppPassword);
 
   if (!emailProviderConfigured || !siteConfig.contactEmail) {
+    const missing = [
+      !gmailUser && "GMAIL_USER",
+      !gmailAppPassword && "GMAIL_APP_PASSWORD",
+      !siteConfig.contactEmail && "contactEmail",
+    ].filter(Boolean);
     return {
       status: "not-configured",
-      message:
-        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure GMAIL_USER / GMAIL_APP_PASSWORD in .env.local, or reach out directly for now.",
+      message: `Thanks — your info was validated, but form delivery isn't connected yet. Missing: ${missing.join(", ")}.`,
     };
   }
 
