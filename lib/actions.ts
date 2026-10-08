@@ -1,6 +1,6 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site-config";
 
 export type ContactFormState = {
@@ -20,17 +20,18 @@ export type ContactFormPayload = {
 };
 
 /**
- * Server action scaffold for the contact/lead form.
+ * Server action for the contact/lead form.
  *
- * This intentionally does NOT fake a successful submission. Until a real
- * email provider (e.g. Resend) is configured via environment variables,
- * submissions are validated locally and the user is shown a clear
- * "not configured" message rather than a false success state.
+ * Sends email via Google Workspace SMTP (Gmail) using an App Password.
+ * This intentionally does NOT fake a successful submission -- until
+ * GMAIL_APP_PASSWORD is configured via environment variables, submissions
+ * are validated locally and the user is shown a clear "not configured"
+ * message rather than a false success state.
  *
- * To wire this up for real:
- * 1. Add RESEND_API_KEY (or your provider's equivalent) to .env.local.
- * 2. Install the provider SDK (e.g. `npm install resend`).
- * 3. Replace the TODO block below with an actual send call.
+ * To wire this up:
+ * 1. Turn on 2-Step Verification for the sending Google account.
+ * 2. Generate an App Password at https://myaccount.google.com/apppasswords.
+ * 3. Add GMAIL_USER (the sending address) and GMAIL_APP_PASSWORD to .env.local.
  */
 export async function submitContactForm(
   _prevState: ContactFormState,
@@ -62,13 +63,15 @@ export async function submitContactForm(
     };
   }
 
-  const emailProviderConfigured = Boolean(process.env.RESEND_API_KEY);
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+  const emailProviderConfigured = Boolean(gmailUser && gmailAppPassword);
 
   if (!emailProviderConfigured || !siteConfig.contactEmail) {
     return {
       status: "not-configured",
       message:
-        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure RESEND_API_KEY in .env.local, or reach out directly for now.",
+        "Thanks — your info was validated, but form delivery isn't connected yet. Please configure GMAIL_USER / GMAIL_APP_PASSWORD in .env.local, or reach out directly for now.",
     };
   }
 
@@ -89,25 +92,24 @@ export async function submitContactForm(
     .join("")}</table>`;
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const { error } = await resend.emails.send({
-      from: "Octave Logistics Website <onboarding@resend.dev>",
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: gmailUser,
+        pass: gmailAppPassword,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Octave Logistics Website" <${gmailUser}>`,
       to: siteConfig.contactEmail,
       replyTo: payload.email,
       subject: `New fulfillment inquiry from ${payload.company}`,
       text: textBody,
       html: htmlBody,
     });
-
-    if (error) {
-      console.error("Resend send error:", error);
-      return {
-        status: "error",
-        message: "Something went wrong sending your request. Please try again or email us directly.",
-      };
-    }
   } catch (err) {
-    console.error("Resend send exception:", err);
+    console.error("Gmail SMTP send error:", err);
     return {
       status: "error",
       message: "Something went wrong sending your request. Please try again or email us directly.",
