@@ -251,6 +251,4 @@ export const finalCta = {
 
 export const footerLinks = {
   about: { label: "About Us", href: "/about" },
-  privacy: { label: "Privacy Policy", href: "#", todo: true },
-  terms: { label: "Terms of Service", href: "#", todo: true },
 };
